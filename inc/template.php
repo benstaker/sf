@@ -72,5 +72,5 @@
 				<br />
 			</div>
 		</body>
-	</hmtl>";
+	</html>";
 ?>

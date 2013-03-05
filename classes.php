@@ -3,9 +3,9 @@
 	class SocialFeed {
 		function connectDB(){
 			$host = 'localhost';
-			$user = 'bass2k8_admin';
-			$pass = 'b1a9s93';
-			$db = 'bass2k8_sf';
+			$user = 'root';
+			$pass = '';
+			$db = 'sf';
 			$con = mysql_connect($host, $user, $pass);
 			$dbcon = mysql_select_db($db) or die('Cannot select database: '.mysql_error());
 		}
