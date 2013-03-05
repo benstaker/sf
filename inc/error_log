@@ -1,0 +1,32 @@
+[22-Aug-2009 10:57:15] PHP Warning:  include(inc/db.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/traxc/public_html/microblog/inc/change.php on line 137
+[22-Aug-2009 10:57:15] PHP Warning:  include(inc/db.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/traxc/public_html/microblog/inc/change.php on line 137
+[22-Aug-2009 10:57:15] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'inc/db.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/traxc/public_html/microblog/inc/change.php on line 137
+[22-Aug-2009 10:57:15] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: Access denied for user 'traxc'@'localhost' (using password: NO) in /home/traxc/public_html/microblog/inc/change.php on line 139
+[22-Aug-2009 10:57:15] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: A link to the server could not be established in /home/traxc/public_html/microblog/inc/change.php on line 139
+[22-Aug-2009 11:20:03] PHP Warning:  fread(): supplied argument is not a valid stream resource in /home/traxc/public_html/microblog/inc/change.php on line 16
+[22-Aug-2009 11:20:03] PHP Warning:  fclose(): supplied argument is not a valid stream resource in /home/traxc/public_html/microblog/inc/change.php on line 18
+[23-Aug-2009 07:40:14] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 682
+[23-Aug-2009 07:40:14] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 696
+[23-Aug-2009 07:40:14] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 710
+[23-Aug-2009 07:40:14] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 724
+[23-Aug-2009 07:40:14] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 736
+[23-Aug-2009 07:40:14] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 757
+[23-Aug-2009 07:41:47] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 682
+[23-Aug-2009 07:41:47] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 696
+[23-Aug-2009 07:41:47] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 710
+[23-Aug-2009 07:41:47] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 724
+[23-Aug-2009 07:41:47] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 736
+[23-Aug-2009 07:41:47] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 757
+[24-Aug-2009 13:20:09] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 672
+[24-Aug-2009 13:20:09] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 672
+[24-Aug-2009 13:20:09] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 672
+[24-Aug-2009 13:20:09] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 672
+[24-Aug-2009 13:20:09] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 672
+[24-Aug-2009 13:20:09] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 672
+[24-Aug-2009 13:20:09] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 672
+[24-Aug-2009 13:20:09] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 672
+[24-Aug-2009 13:20:09] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 672
+[24-Aug-2009 13:20:09] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 672
+[24-Aug-2009 13:20:09] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/traxc/public_html/microblog/inc/change.php on line 672
+[26-Aug-2009 10:24:13] PHP Warning:  require_once(api/classes.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /home/traxc/public_html/microblog/inc/change.php on line 2
+[26-Aug-2009 10:24:13] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required 'api/classes.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/traxc/public_html/microblog/inc/change.php on line 2
