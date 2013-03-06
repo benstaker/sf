@@ -29,7 +29,7 @@ Class User extends Database {
 
 	}
 
-	private function checkUserID($userID=false){
+	protected function _checkUserID($userID=false){
 
 		if($userID!==false) $this->_userID=$userID;
 		else if(isset($this->_userID) && !empty($this->_userID)) $userID=$this->_userID;
@@ -53,7 +53,7 @@ Class User extends Database {
 	// Text
 	public function getUsername($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -69,7 +69,7 @@ Class User extends Database {
 	// Text
 	public function getEmailAddress($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -85,7 +85,7 @@ Class User extends Database {
 	// Text
 	public function getForename($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -101,7 +101,7 @@ Class User extends Database {
 	// Text
 	public function getSurname($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -117,7 +117,7 @@ Class User extends Database {
 	// Text
 	public function getFullName($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$forename=$this->getForename($this->_userID);
 			$surname=$this->getSurname($this->_userID);
@@ -130,7 +130,7 @@ Class User extends Database {
 	// Integer
 	public function getUserLevel($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -146,7 +146,7 @@ Class User extends Database {
 	// Blob
 	public function getAvatar($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -162,7 +162,7 @@ Class User extends Database {
 	// Integer
 	public function getTime($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -178,7 +178,7 @@ Class User extends Database {
 	// Integer
 	public function getTimezone($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -194,7 +194,7 @@ Class User extends Database {
 	// Text
 	public function getBio($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -210,7 +210,7 @@ Class User extends Database {
 	// Boolean
 	public function getBebo($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -226,7 +226,7 @@ Class User extends Database {
 	// Boolean
 	public function getFacebook($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -242,7 +242,7 @@ Class User extends Database {
 	// Boolean
 	public function getMySpace($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -258,7 +258,7 @@ Class User extends Database {
 	// Boolean
 	public function getProfile($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -274,7 +274,7 @@ Class User extends Database {
 	// Boolean
 	public function getTwitter($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
@@ -290,7 +290,7 @@ Class User extends Database {
 	// Boolean
 	public function getYouTube($userID=false){
 
-		if($this->checkUserID($userID)){
+		if($this->_checkUserID($userID)){
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));

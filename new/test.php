@@ -21,8 +21,8 @@ echo $User->getFullName();
 echo "<br />";
 echo $User->getUserLevel();
 
-echo "<br />";
-echo $User->getAvatar();
+//echo "<br />";
+//echo $User->getAvatar();
 
 echo "<br />";
 echo $User->getTime();
