@@ -1,0 +1,134 @@
+html {
+	height: 100%; width: 100%;
+}
+
+// Font
+@font-color: #000;
+@font-family: 'Trebuchet MS';
+@font-size: 14px;
+
+@background-color: #d7e9fb;
+
+/* MAIN */
+body {
+	background-color: @background-color;
+	color: @font-color;
+	font: @font-size @font-family;
+	margin: 10px;
+}
+
+p {
+	margin: 0; padding: 0;
+}
+
+@page-width: 960px;
+
+.wrapper {
+	border: 1px solid #000;
+	margin: 0 auto;
+	width: @page-width;
+	
+	// Header variables.
+	@header-bg-image: url('../img/logo.png');
+
+	header {
+		border: inherit;
+
+		.logo {
+			background-image: @header-bg-image;
+			height: 41px; width: 155px;
+		}
+	}
+	
+	// Navigation variables.
+	@nav-bg-color: #fff;
+
+	nav {
+		border: inherit;
+		background-color: @nav-bg-color;
+		margin-top: 10px;
+		text-align: center;
+
+		ul {
+			border: inherit;
+			list-style-type: none;
+			margin: 0; padding: 0;
+			li {
+				border: inherit;
+				display: inline-block;
+
+				a {
+					border: inherit;
+
+					&, &:link, &:visited, &:active {
+						background-color: #aaa;
+						color: #fff;
+						display: block;
+						padding: 5px 10px;
+					}
+
+					&:hover {
+						background-color: #888;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+	
+	// Content variables.
+	@content-bg-color: #fff;
+
+	.content {
+		background-color: @content-bg-color;
+		border: inherit;
+		float: left;
+		margin: 10px 0;
+		padding: 10px;
+		width: 580px;
+	}
+	
+	// Sidebar variables.
+	@sidebar-bg-color: #fff;
+
+	aside {
+		background-color: @sidebar-bg-color;
+		border: inherit;
+		float: right;
+		margin: 10px 0;
+		padding: 10px;
+		width: 320px;
+	}
+	
+	// Footer variables.
+	@footer-bg-color: #fff;
+
+	footer {
+		background-color: @footer-bg-color;
+		border: inherit;
+		clear: both;
+		margin-top: 10px;
+		padding: 10px;
+
+		&:before {
+			visibility: hidden;
+			display: block;
+			font-size: 0;
+			content: " ";
+			clear: both;
+			height: 0;
+		}
+	}
+
+}
+
+a {
+
+	&, &:link, &:visited, &:active {
+		text-decoration: none;
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
