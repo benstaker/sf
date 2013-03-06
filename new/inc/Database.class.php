@@ -9,7 +9,7 @@ require_once("constants.inc.php");
 /*
  * Log class
  */
-require_once("log.inc.php");
+require_once("Log.class.php");
 
 // {{{ Database
 
@@ -313,7 +313,7 @@ Class Database {
 				 * If there aren't any PDO errors, return the association.
 				 */
 				if(!$this->_PDOErrors()){
-					if($this->_logging) $this->_log->addToLog("Returned number of rows successfully.");
+					if($this->_logging) $this->_log->addToLog("Returned <strong>".$numberOfRows."</strong> row(s) successfully.");
 					return $numberOfRows;
 				} else {
 					if($this->_logging) $this->_log->addToLog("Cannot return number of rows; an error occured.");
