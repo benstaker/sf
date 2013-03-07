@@ -1,17 +1,46 @@
-html {
-	height: 100%; width: 100%;
+// Functions
+.linear_gradient (@color1: #ffffff, @perc1: 0%, @color2: #aaaaaa, @perc2: 100%) {
+	background-image: -ms-linear-gradient(top, @color1  @perc1, @color2  @perc2);
+	background-image: -moz-linear-gradient(top, @color1  @perc1, @color2  @perc2);
+	background-image: -o-linear-gradient(top, @color1  @perc1, @color2  @perc2);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(unit(@perc1/100), @color1 ), color-stop(unit(@perc2/100), @color2 ));
+	background-image: -webkit-linear-gradient(top, @color1  @perc1, @color2  @perc2);
+	background-image: linear-gradient(to bottom, @color1  @perc1, @color2  @perc2);
 }
 
-// Font
+.border-radius-all (@radius: 0px){
+	border-radius: @radius;
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+}
+
+.border-radius (@top-left: 0px, @top-right: 0px, @bottom-right: 0px, @bottom-left: 0px){
+	border-radius: @top-left @top-right @bottom-right @bottom-left;
+	-moz-border-radius: @top-left @top-right @bottom-right @bottom-left;
+	-webkit-border-radius: @top-left @top-right @bottom-right @bottom-left;
+}
+
+.opacity (@value: 0.8){
+	opacity: @value;
+	-ms-filter: ~"'progid:DXImageTransform.Microsoft.Alpha(Opacity="@value*100~")'"; /* IE opacities */
+	filter: ~"alpha(opacity="@value*100~")";
+}
+
+// Body variables
+@body-background-start: #d7e9fb;
+@body-background-end: desaturate(darken(@body-background-start, 10%), 15%);
 @font-color: #000;
 @font-family: 'Trebuchet MS';
 @font-size: 14px;
 
-@background-color: #d7e9fb;
-
 /* MAIN */
+html {
+	.linear_gradient (@body-background-start, 0%, @body-background-end, 100%);
+	box-sizing: border-box;
+	height: 100%; width: 100%;
+}
+
 body {
-	background-color: @background-color;
 	color: @font-color;
 	font: @font-size @font-family;
 	margin: 10px;
@@ -21,10 +50,11 @@ p {
 	margin: 0; padding: 0;
 }
 
+@border-color: darken(@body-background-start, 20%);
 @page-width: 960px;
 
 .wrapper {
-	border: 1px solid #000;
+	border: none;
 	margin: 0 auto;
 	width: @page-width;
 	
@@ -42,33 +72,37 @@ p {
 	
 	// Navigation variables.
 	@nav-bg-color: #fff;
+	@nav-link-color: darken(@body-background-end, 20%);
+	@nav-link-bg-color: @nav-bg-color;
+	@nav-link-hover-color: #fff;
+	@nav-link-hover-bg-color: darken(@body-background-end, 20%);
 
 	nav {
-		border: inherit;
+		border: 1px solid @border-color;
+		.border-radius-all(5px);
 		background-color: @nav-bg-color;
 		margin-top: 10px;
 		text-align: center;
 
 		ul {
-			border: inherit;
 			list-style-type: none;
 			margin: 0; padding: 0;
 			li {
-				border: inherit;
 				display: inline-block;
 
 				a {
 					border: inherit;
 
 					&, &:link, &:visited, &:active {
-						background-color: #aaa;
-						color: #fff;
+						background-color: @nav-link-bg-color;
+						color: @nav-link-color;
 						display: block;
-						padding: 5px 10px;
+						padding: 10px 15px;
 					}
 
 					&:hover {
-						background-color: #888;
+						background-color: @body-background-end;
+						color: @nav-link-hover-color;
 						text-decoration: none;
 					}
 				}
@@ -81,7 +115,8 @@ p {
 
 	.content {
 		background-color: @content-bg-color;
-		border: inherit;
+		border: 1px solid @border-color;
+		.border-radius-all(5px);
 		float: left;
 		margin: 10px 0;
 		padding: 10px;
@@ -93,7 +128,8 @@ p {
 
 	aside {
 		background-color: @sidebar-bg-color;
-		border: inherit;
+		border: 1px solid @border-color;
+		.border-radius-all(5px);
 		float: right;
 		margin: 10px 0;
 		padding: 10px;
@@ -105,7 +141,8 @@ p {
 
 	footer {
 		background-color: @footer-bg-color;
-		border: inherit;
+		border: 1px solid @border-color;
+		.border-radius-all(5px);
 		clear: both;
 		margin-top: 10px;
 		padding: 10px;
