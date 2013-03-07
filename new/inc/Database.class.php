@@ -313,7 +313,7 @@ Class Database {
 				 * If there aren't any PDO errors, return the association.
 				 */
 				if(!$this->_PDOErrors()){
-					if($this->_logging) $this->_log->addToLog("Returned <strong>".$numberOfRows."</strong> row(s) successfully.");
+					if($this->_logging) $this->_log->addToLog("Returned ".$numberOfRows." row(s) successfully.");
 					return $numberOfRows;
 				} else {
 					if($this->_logging) $this->_log->addToLog("Cannot return number of rows; an error occured.");
@@ -467,12 +467,30 @@ Class Database {
 					}
 				}
 
+				/*
+				 * If COLUMN option is in array.
+				 */
+				if(array_key_exists('COLUMN', $options_arr)){
+					/*
+					 * If COLUMN arguments are supplied.
+					 */
+					if(count($options_arr["COLUMN"], COUNT_RECURSIVE)!=0){
+						$columns="";
+						foreach($options_arr["COLUMN"] as $column){
+							$columns.=$column.", ";
+						}
+						$columns=substr($columns, 0, -2);
+					}
+				}
+
 			}
+
+			if(!isset($columns) && empty($columns)) $columns="*";
 
 			/*
 			 * SQL statement.
 			 */
-			$this->query("SELECT * FROM `$table`".$options_sql, $params);
+			$this->query("SELECT ".$columns." FROM `$table`".$options_sql, $params);
 
 			/*
 			 * If there aren't any PDO errors, return true.
@@ -732,5 +750,3 @@ Class Database {
  * c-hanging-comment-ender-p: nil
  * End:
  */
-
-?>
