@@ -52,272 +52,150 @@ Class User extends Database {
 
 	}
 
+	public function get($column=false, $userID=false){
+
+		if($this->_checkUserID($userID)){
+			if($column!==false){
+
+				// Allowed columns array.
+				$column_arr=array("user", "email", "fname", "lname", "ulev",
+								  "avatar", "time", "timezone", "bio", "bebo",
+								  "facebook", "myspace", "profile", "twitter", "youtube");
+
+				// Check if supplied column is in the array.
+				if(in_array($column, $column_arr)){
+					$options=array();
+					$options["WHERE"]=array(array("id", $this->_userID));
+					$options["COLUMN"]=array($column);
+
+					$this->_Database->selectTable("usercred", $options);
+					$user=$this->_Database->fetchAssociation();
+
+					$this->log(" get() - Returned <strong>".$column."</strong> successfully.");
+
+					return $user[$column];
+				} else {
+					$this->log(" get() - Column <strong>".$column."</strong> does not exist.");
+					return false;
+				}
+			}
+		} else return false;
+
+	}
+
 	// Text
 	public function getUsername($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("user");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["user"];
-
-		} else return false;
+		return $this->get("user", $userID);
 
 	}
 
 	// Text
 	public function getEmailAddress($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("email");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["email"];
-
-		} else return false;
+		return $this->get("email", $userID);
 		
 	}
 
 	// Text
 	public function getForename($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("fname");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["fname"];
-
-		} else return false;
+		return $this->get("fname", $userID);
 		
 	}
 
 	// Text
 	public function getSurname($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("lname");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["lname"];
-
-		} else return false;
+		return $this->get("lname", $userID);
 		
 	}
 
 	// Text
 	public function getFullName($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$forename=$this->getForename($this->_userID);
-			$surname=$this->getSurname($this->_userID);
+		$forename=$this->getForename($this->_userID);
+		$surname=$this->getSurname($this->_userID);
+		if(isset($forename) && !empty($forename) && isset($surname) && !empty($surname))
 			return $forename." ".$surname;
-
-		} else return false;
+		else return false;
 		
 	}
 
 	// Integer
 	public function getUserLevel($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("ulev");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["ulev"];
-
-		} else return false;
+		return $this->get("ulev", $userID);
 		
 	}
 
 	// Blob
 	public function getAvatar($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("avatar");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["avatar"];
-
-		} else return false;
+		return $this->get("avatar", $userID);
 		
 	}
 
 	// Integer
 	public function getTime($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("time");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["time"];
-
-		} else return false;
+		return $this->get("time", $userID);
 		
 	}
 
 	// Integer
 	public function getTimezone($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("timezone");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["timezone"];
-
-		} else return false;
+		return $this->get("timezone", $userID);
 		
 	}
 
 	// Text
 	public function getBio($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("bio");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["bio"];
-
-		} else return false;
+		return $this->get("bio", $userID);
 		
 	}
 
 	// Boolean
 	public function getBebo($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("bebo");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["bebo"];
-
-		} else return false;
+		return $this->get("bebo", $userID);
 		
 	}
 
 	// Boolean
 	public function getFacebook($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("facebook");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["facebook"];
-
-		} else return false;
+		return $this->get("facebook", $userID);
 		
 	}
 
 	// Boolean
 	public function getMySpace($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("myspace");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["myspace"];
-
-		} else return false;
+		return $this->get("myspace", $userID);
 		
 	}
 
 	// Boolean
 	public function getProfile($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("profile");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["profile"];
-
-		} else return false;
+		return $this->get("profile", $userID);
 		
 	}
 
 	// Boolean
 	public function getTwitter($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("twitter");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			return $user["twitter"];
-
-		} else return false;
+		return $this->get("twitter", $userID);
 		
 	}
 
 	// Boolean
 	public function getYouTube($userID=false){
 
-		if($this->_checkUserID($userID)){
-
-			$options=array();
-			$options["WHERE"]=array(array("id", $this->_userID));
-			$options["COLUMN"]=array("youtube");
-
-			$this->_Database->selectTable("usercred", $options);
-			$user=$this->_Database->fetchAssociation();
-			print_r($user);
-			return $user["youtube"];
-
-		} else return false;
+		return $this->get("youtube", $userID);
 		
 	}
 
