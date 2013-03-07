@@ -35,11 +35,11 @@ if(!isset($stylesheets) || empty($stylesheets)) $stylesheets=array();
 			</header>
 			<nav>
 				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">Signup</a></li>
-					<li><a href="#">Login</a></li>
+					<li><a href="./">Home</a></li>
+					<li><a href="about.php">About</a></li>
+					<li><a href="contact.php">Contact</a></li>
+					<li><a href="signup.php">Signup</a></li>
+					<li><a href="login.php">Login</a></li>
 				</ul>
 			</nav>
 			<section class="content">

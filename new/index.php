@@ -5,14 +5,9 @@ $c=""; // Content
 $s=""; // Sidebar
 
 require_once("inc/Login.class.php");
-$Login = new Login(8);
+$Login = new Login();
 
-if(isset($_GET["login"])){
-
-	$Login->login();
-	header("Location: ./");
-
-} else if(isset($_GET["logout"])){
+if(isset($_GET["logout"])){
 
 	$Login->logout();
 	header("Location: ./");
@@ -28,9 +23,11 @@ if(isset($_GET["login"])){
 
 		$c.="Welcome ".$fullName.". <a href='?logout'>Logout</a>.";
 		$s.="Awesome Sidebar";
-	}
-	else {
-		$c.="Welcome to Social Feed. <a href='?login'>Login</a>.";
+	} else {
+		//unset($_SESSION["userID"]);
+		//print_r($_SESSION);
+
+		$c.="Welcome to Social Feed. <a href='login.php'>Login</a>.";
 		$s.="Sidebar";
 	}
 
