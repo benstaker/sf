@@ -23,9 +23,14 @@ Class User extends Database {
 		
 	}
 
-	public function log($message){
+	public function log($message=false){
 
-		if(isset($this->_Database) && $this->_Database->_logging) $this->_Database->_log->addToLog("<strong>".$this->name.":</strong> ".$message);
+		if($message!==false){
+
+			if(isset($this->_Database) && $this->_Database->_logging)
+			$this->_Database->_log->addToLog("<strong>".$this->name.":</strong> ".$message);
+		
+		}
 
 	}
 
@@ -49,6 +54,32 @@ Class User extends Database {
 			$this->log(" checkUserID() - User ID does not exist.");
 			return false;
 		}
+
+	}
+
+	public function exist($column=false, $value=false){
+
+		if($column!==false && $value!==false){
+
+			// Allowed columns array.
+			$column_arr=array("user", "email");
+
+			// Check if supplied column is in the array.
+			if(in_array($column, $column_arr)){
+
+				$options=array();
+				$options["WHERE"]=array(array($column, $value));
+				$options["COLUMN"]=array($column);
+
+				$this->_Database->selectTable("usercred", $options);
+				$numberOfRows=$this->_Database->numberOfRows();
+				
+				if($numberOfRows > 0) return true;
+				else return false;
+
+			} return false;
+
+		} return false;
 
 	}
 
