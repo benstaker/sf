@@ -3,6 +3,7 @@
 // Declaring variables.
 $c=""; // Content
 $s=""; // Sidebar
+$page=$title="Login"; // Page Title.
 
 require_once("inc/functions.inc.php");
 require_once("inc/Login.class.php");
@@ -15,18 +16,14 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
 	}
 	else {
 		$c.="Username/Password is incorrect.";
+		$s.="Sidebar";
 		redirect("./", 4000);
 	}
 
 } else {
 
-	if($Login->status()){
-		
-		$c.="You're already logged in :s";
-		$s.="<a href=\"index.php?logout\">Logout</a> fool.";
-		redirect("./", 10);
-
-	} else {
+	if($Login->status()) header("Location: ./");
+	else {
 
 		ob_start();
 		?>

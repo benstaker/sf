@@ -3,6 +3,48 @@
 if(!isset($scripts) || empty($scripts)) $scripts=array();
 if(!isset($stylesheets) || empty($stylesheets)) $stylesheets=array();
 
+$navi="";
+$navi_arr=array(
+	array("./", "Home"),
+	array("about.php", "About"),
+	array("contact.php", "Contact")
+);
+
+require_once("Login.class.php");
+if(!isset($Login)) $Login=new Login();
+
+// If the user is logged in.
+if($Login->status()){
+
+	$navi_arr[count($navi_arr)]=array("index.php?logout", "Logout");
+
+} else {
+
+	$navi_arr[count($navi_arr)]=array("login.php", "Login");
+	$navi_arr[count($navi_arr)]=array("signup.php", "Signup");
+
+}
+
+foreach($navi_arr as $na){
+	if(isset($na[2]) && is_array($na[2]) && count($na[2], COUNT_RECURSIVE)>0){
+		$navi.="<li>\n\t\t<a href=\"".$na[0]."\"";
+		if($page==$na[1]) $navi.=" class=\"selected\"";
+		$navi.=">".$na[1]."</a>\n";
+		$navi.="\t<ul class=\"dropdown\">\n";
+		foreach($na[2] as $dd){
+			$navi.="\t\t<li>\n\t\t\t<a href=\"".$dd[0]."\"";
+			if($page==$dd[1]) $navi.=" class=\"selected\"";
+			$navi.=">".$dd[1]."</a>\n\t\t</li>\n";
+		}
+		$navi.="\t</ul>\n";
+		$navi.="</li>\n";
+	} else {
+		$navi.="<li>\n<a href=\"".$na[0]."\"";
+		if($page==$na[1]) $navi.=" class=\"selected\"";
+		$navi.=">".$na[1]."</a>\n</li>\n";
+	}
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,11 +77,7 @@ if(!isset($stylesheets) || empty($stylesheets)) $stylesheets=array();
 			</header>
 			<nav>
 				<ul>
-					<li><a href="./">Home</a></li>
-					<li><a href="about.php">About</a></li>
-					<li><a href="contact.php">Contact</a></li>
-					<li><a href="signup.php">Signup</a></li>
-					<li><a href="login.php">Login</a></li>
+					<?php echo $navi; ?>
 				</ul>
 			</nav>
 			<section class="content">

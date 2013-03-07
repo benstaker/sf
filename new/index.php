@@ -3,6 +3,7 @@
 // Declaring variables.
 $c=""; // Content
 $s=""; // Sidebar
+$page=$title="Home"; // Page Title.
 
 require_once("inc/Login.class.php");
 $Login = new Login();
@@ -24,9 +25,6 @@ if(isset($_GET["logout"])){
 		$c.="Welcome ".$fullName.". <a href='?logout'>Logout</a>.";
 		$s.="Awesome Sidebar";
 	} else {
-		//unset($_SESSION["userID"]);
-		//print_r($_SESSION);
-
 		$c.="Welcome to Social Feed. <a href='login.php'>Login</a>.";
 		$s.="Sidebar";
 	}
