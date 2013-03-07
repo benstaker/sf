@@ -40,6 +40,8 @@ Class User extends Database {
 
 		$options=array();
 		$options["WHERE"]=array(array("id", $userID));
+		$options["COLUMN"]=array("id");
+
 		$this->_Database->selectTable("usercred", $options);
 
 		if($this->_Database->numberOfRows() > 0) return true;
@@ -57,6 +59,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("user");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -73,6 +76,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("email");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -89,6 +93,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("fname");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -105,6 +110,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("lname");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -134,6 +140,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("ulev");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -150,6 +157,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("avatar");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -166,6 +174,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("time");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -182,6 +191,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("timezone");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -198,6 +208,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("bio");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -214,6 +225,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("bebo");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -230,6 +242,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("facebook");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -246,6 +259,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("myspace");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -262,6 +276,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("profile");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -278,6 +293,7 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("twitter");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
@@ -294,9 +310,11 @@ Class User extends Database {
 
 			$options=array();
 			$options["WHERE"]=array(array("id", $this->_userID));
+			$options["COLUMN"]=array("youtube");
 
 			$this->_Database->selectTable("usercred", $options);
 			$user=$this->_Database->fetchAssociation();
+			print_r($user);
 			return $user["youtube"];
 
 		} else return false;
